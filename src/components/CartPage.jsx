@@ -4,8 +4,14 @@ import { removeItem, getCartTotal,  decreaseItemQuantity,
   increaseItemQuantity
  } from "../slices/CartSlice";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/");
+  };
   const {
     cart,
     totalQuantity,
@@ -140,12 +146,9 @@ function CartPage() {
                       </span>
                     </li>
                   </ul>
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-lg btn-block  "
-                  >
-                    Go to checkout
-                  </button>
+                  <button type="button" className="btn btn-primary btn-lg btn-block" onClick={handleCheckout}>
+      Go to checkout
+    </button>
                 </div>
               </div>
             </div>
